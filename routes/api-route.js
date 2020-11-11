@@ -1,8 +1,9 @@
+let db = require("../models");
+
 module.exports = function (app) {
   app.get("/api/workouts", (req, res) => {
-    console.log("req: ", req);
+    console.log("req for api/workouts route: ", req);
     db.Workout.find({})
-      .populate("exercises")
       .then(dbWorkout => {
         res.json(dbWorkout);
       })
@@ -12,10 +13,8 @@ module.exports = function (app) {
   });
 
 
-  app.get("/exercise", (req, res) => {
-    console.log("req: ", req);
-    db.Workout.find({})
-      .populate("exercises")
+  app.post("/api/workouts", (req, res) => {
+    db.Workout.create({})
       .then(dbWorkout => {
         res.json(dbWorkout);
       })
@@ -23,4 +22,27 @@ module.exports = function (app) {
         res.json(err);
       });
   });
+
+  app.put("/api/workouts/:id", (req, res) => {
+    db.Workout.findByIdAndUpdate(req.params.id,{$push: {exercises:req.body}}, {new:true})
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
+
+  app.get("/api/workouts/range", (req, res) => {
+    console.log("req for api/workouts/range route: ", req);
+    db.Workout.find({}).limit(7)
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
 };

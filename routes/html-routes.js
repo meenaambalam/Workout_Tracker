@@ -3,26 +3,16 @@ var path = require("path");
 
 module.exports = function (app) {
     app.get("/", (req, res) => {
-        console.log("req: ", req);
-        db.Workout.find({})
-            .populate("exercises")
-            .then(dbWorkout => {
-                res.json(dbWorkout);
-            })
-            .catch(err => {
-                res.json(err);
-            });
+        res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
-    app.get("/exercise", (req, res) => {
-        console.log("req: ", req);
-        db.Workout.find({})
-            .populate("exercises")
-            .then(dbWorkout => {
-                res.json(dbWorkout);
-            })
-            .catch(err => {
-                res.json(err);
-            });
+    //html route for Save Favourote Gift Page
+    app.get("/exercise", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/exercise.html"));
+    });
+
+    //html route for Save Favourote Gift Page
+    app.get("/stats", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/stats.html"));
     });
 };

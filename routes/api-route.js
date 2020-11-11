@@ -2,7 +2,7 @@ let db = require("../models");
 
 module.exports = function (app) {
   app.get("/api/workouts", (req, res) => {
-    console.log("req for api/workouts route: ", req);
+    // console.log("req for api/workouts route: ", req);
     db.Workout.find({})
       .then(dbWorkout => {
         res.json(dbWorkout);
@@ -24,7 +24,7 @@ module.exports = function (app) {
   // });
 
   app.post("/api/workouts", (req, res) => {
-    console.log("Workout Create route REQ_BODY:", req.body);
+    // console.log("Workout Create route REQ_BODY:", req.body);
 
     const workout = new db.Workout(req.body);
     workout.setDate();
@@ -52,8 +52,8 @@ module.exports = function (app) {
 
 
   app.get("/api/workouts/range", (req, res) => {
-    console.log("req for api/workouts/range route: ", req);
-    db.Workout.find({})
+    // console.log("req for api/workouts/range route: ", req);
+    db.Workout.find({}).limit(7)
       .then(dbWorkout => {
         res.json(dbWorkout);
       })

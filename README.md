@@ -63,19 +63,19 @@ MIT
 ## Screenshots    
 1) Last Workout Summary while loading home page:
 
-![Screen #1](/public/assets/Screenshot_Last_Workout_Summary.PNG)
+![Screen #1](/public/Assets/Screenshot_Last_Workout_Summary.PNG)
 
 2) Resistance Workout Form:
 
-![Screen #2](/public/assets/Screenshot_Resistance_Type_Exercise.PNG)
+![Screen #2](/public/Assets/Screenshot_Resistance_Type_Exercise.PNG)
 
 3) Cardio Workout Form:
 
-![Screen #3](/public/assets/Screenshot_Cardio_Type_Exercise.PNG)
+![Screen #3](/public/Assets/Screenshot_Cardio_Type_Exercise.PNG)
 
 4) Workout Dashboard:
 
-![Screen #4](/public/assets/Screenshot_Dashboard.PNG)
+![Screen #4](/public/Assets/Screenshot_Dashboard.PNG)
        
 <div id="urls"/>
         

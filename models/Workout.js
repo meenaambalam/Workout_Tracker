@@ -34,13 +34,11 @@ const WorkoutSchema = new Schema({
 WorkoutSchema.methods.setDate = function(){
   this.day = Date.now();
 }
-
+// Using Virtual to calculate the totalDuration of exercises within the last workout
 WorkoutSchema.virtual('totalDuration').get(function(){
-  console.log("exercise array length : " , this.exercises.length);
   let totalDuration = 0;
   for (let i = 0; i < this.exercises.length; i++) {
     totalDuration = totalDuration + this.exercises[i].duration;
-    console.log("totalDuration:", this.exercises[i].duration );
   }
   return totalDuration;
 })

@@ -12,17 +12,6 @@ module.exports = function (app) {
       });
   });
 
-
-  // app.post("/api/workouts", (req, res) => {
-  //   db.Workout.create({})
-  //     .then(dbWorkout => {
-  //       res.json(dbWorkout);
-  //     })
-  //     .catch(err => {
-  //       res.json(err);
-  //     });
-  // });
-
   app.post("/api/workouts", (req, res) => {
     // console.log("Workout Create route REQ_BODY:", req.body);
 

@@ -28,21 +28,20 @@ const WorkoutSchema = new Schema({
       distance: Number
     }
   ]
- 
-});
+}
+);
 
 WorkoutSchema.methods.setDate = function(){
   this.day = Date.now();
 }
 
 WorkoutSchema.virtual('totalDuration').get(function(){
+  console.log("exercise array length : " , this.exercises.length);
   let totalDuration = 0;
-
-  totalDuration += this.duration;
-  console.log("duration within the virtual: " + this.duration + " totalDuration: " + totalDuration );
-  // this.duration.forEach(function(el){
-  //   totalDuration += el.duration;
-  // });
+  for (let i = 0; i < this.exercises.length; i++) {
+    totalDuration = totalDuration + this.exercises[i].duration;
+    console.log("totalDuration:", this.exercises[i].duration );
+  }
   return totalDuration;
 })
 

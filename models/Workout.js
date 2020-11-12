@@ -1,3 +1,4 @@
+// Defining MongoDB NoSQL Model for Workout DB
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
@@ -31,9 +32,11 @@ const WorkoutSchema = new Schema({
 }
 );
 
+//Custom Method to setup the Date
 WorkoutSchema.methods.setDate = function(){
   this.day = Date.now();
 }
+
 // Using Virtual to calculate the totalDuration of exercises within the last workout
 WorkoutSchema.virtual('totalDuration').get(function(){
   let totalDuration = 0;
